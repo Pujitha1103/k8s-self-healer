@@ -12,8 +12,10 @@ spec:
       labels:
         app: k8s-self-healer
     spec:
+      serviceAccountName: k8s-self-healer
       containers:
         - name: controller
           image: k8s-self-healer:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
